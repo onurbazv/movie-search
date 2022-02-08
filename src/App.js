@@ -1,34 +1,34 @@
 import { useState, useEffect } from 'react'
-import useDebounce from './hooks/useDebounce'
+import SearchForm from './components/SearchForm'
+import RenameMe from './components/RenameMe'
+import { fetchResults } from './services/tmdb'
 
 export default function App () {
-    const [searchTerm, setSearchTerm] = useState("")
     const [results, setResults] = useState([])
-    const [isSearching, setIsSearching] = useState(false)
-    const debouncedSearchTerm = useDebounce(searchTerm, 500)
-    
-    useEffect(() => {
-        console.log('searchTerm:', searchTerm)
-    }, [searchTerm])
+    const [request, setRequest] = useState({
+        page: 1,
+        url: ""
+    })
 
     useEffect(() => {
-        if (debouncedSearchTerm) {
-            setIsSearching(true)
-            // search term has changed
-            // results should be fetched now
-        } else {
-            setIsSearching(false)
+        async function fetchData() {
+            const res = await fetchResults(request.url, request.page)
+            setResults(res.results)
         }
-    }, [debouncedSearchTerm])
+        if (request.url !== "") {
+            fetchData()
+        } 
+    }, [request])
 
     return (
-        <div>
-            <input 
-                type="text" 
-                value={searchTerm} 
-                onChange={({target}) => setSearchTerm(target.value)}/>
-            <div>
-                <p>List of results</p>
+        <div className="p-16 min-h-screen bg-gray-100">
+            <div className="max-w-screen-md mx-auto">
+                <SearchForm setRequest={setRequest}/>
+                <div className="p-4">
+                    {results.length > 0 && results.map((media, index) => (
+                        <RenameMe key={index} media={media}/>
+                    ))}
+                </div>
             </div>
         </div>
     )

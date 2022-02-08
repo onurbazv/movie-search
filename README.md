@@ -6,9 +6,11 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 
 ## To Do List
 
-[ ] Add genres list to config constants
-[ ] Integrate search functionality to the page
+- [ ] Add genres list to config constants
+- [X] Integrate search functionality to the page
+- [ ] Prev/Next page buttons
+- [ ] Create component for listing preview
+- [ ] Open detailed information in a modal when clicking a preview component
 
-## Notes
-You are currently using a debounce hook to automatically trigger the search when the input changes, but you may want to switch to a button and include other search options such as:
-- Include Adult
+## Notes & Bugs
+Rename the preview component (currently it's RenameMe)
