@@ -1,8 +1,8 @@
-import React from 'react';
 import { NOT_FOUND_IMAGE, BASE_IMAGE_PATH } from '../constants/config'
+import { STRINGS } from '../constants/strings'
 
-export default function MediaListing({media}) {
-    console.log(media)
+export default function MediaListing({media, language}) {
+
     return (
         (media.media_type === "tv" && (
             <div className="flex gap-4 p-4 bg-gray-300 rounded">
@@ -12,7 +12,7 @@ export default function MediaListing({media}) {
                     className="h-72 w-48 object-cover rounded self-center"/>
                 <div className="flex flex-col gap-4">
                     <p className="text-2xl">{media.name}</p>
-                    <p>{media.overview || "No description found"}</p>
+                    <p>{media.overview || STRINGS[language]['NO_DESCRIPTION']}</p>
                 </div>
             </div>
         )) || (media.media_type === "movie" && (
@@ -23,7 +23,7 @@ export default function MediaListing({media}) {
                     className="h-72 w-48 object-cover rounded self-center"/>
                 <div className="flex flex-col gap-4">
                     <p className="text-2xl">{media.title}</p>
-                    <p>{media.overview || "No description found"}</p>
+                    <p>{media.overview || STRINGS[language]['NO_DESCRIPTION']}</p>
                 </div>
             </div>
         )) || (media.media_type === "person" && (
@@ -37,7 +37,7 @@ export default function MediaListing({media}) {
                     <p>Known for: {
                         (media.known_for.length > 0 && `${media.known_for.map(kf => (
                             kf.media_type === "tv" ? kf.name : kf.title
-                        )).join(", ")}.`) || "unknown"
+                        )).join(", ")}.`) || STRINGS[language]['NO_DESCRIPTION']
                     }</p>
                 </div>
             </div>
