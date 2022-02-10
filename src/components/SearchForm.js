@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BASE_URL } from '../constants/config'
 
 export default function SearchForm({setRequest}) {
@@ -17,8 +17,6 @@ export default function SearchForm({setRequest}) {
             }
         })
     }
-
-    useEffect(() => console.log(formData), [formData])
 
     const handleSubmit = (event) => {
         event.preventDefault()
