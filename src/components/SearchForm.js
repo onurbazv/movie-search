@@ -23,6 +23,7 @@ export default function SearchForm({setRequest, language}) {
         event.preventDefault()
         setRequest({
             page: 1,
+            category: formData.category,
             url: BASE_URL
                 .replace("QUERY", formData.query)
                 .replace("CATEGORY", formData.category)
