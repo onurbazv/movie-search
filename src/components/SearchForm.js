@@ -28,7 +28,6 @@ export default function SearchForm({setRequest, language}) {
                 .replace("QUERY", formData.query)
                 .replace("CATEGORY", formData.category)
                 .replace("NSFW", formData.includeAdult ? "true" : "false")
-                .replace("LANGUAGE", language)
         })
     }
 

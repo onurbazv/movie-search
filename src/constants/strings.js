@@ -12,7 +12,9 @@ export const STRINGS = {
         'FORM_CATEGORY_MOVIE': 'Filmes',
         'FORM_CATEGORY_TV': 'Séries',
         'FORM_CATEGORY_PERSON': 'Pessoas',
-        'FORM_INCLUDE_NSFW': 'Incluir conteúdo adulto'
+        'FORM_INCLUDE_NSFW': 'Incluir conteúdo adulto',
+        'PAGE_CURRENT': 'Página CURRENT/TOTAL',
+        'PAGE_RESULTS': 'Exibindo MIN-MAX de TOTAL resultados'
     }, 'en-US': {
         'NO_DESCRIPTION': 'No english description',
         'FORM_TITLE': 'TMDB Search',
@@ -23,6 +25,8 @@ export const STRINGS = {
         'FORM_CATEGORY_MOVIE': 'Movies',
         'FORM_CATEGORY_TV': 'TV Shows',
         'FORM_CATEGORY_PERSON': 'Person',
-        'FORM_INCLUDE_NSFW': 'Include NSFW content'
+        'FORM_INCLUDE_NSFW': 'Include NSFW content',
+        'PAGE_CURRENT': 'Page CURRENT/TOTAL',
+        'PAGE_RESULTS': 'Showing MIN-MAX out of TOTAL results'
     }
 }

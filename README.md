@@ -6,11 +6,11 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 
 ## To Do List
 
-- [ ] Add genres list to config constants
 - [X] Integrate search functionality to the page
-- [ ] Prev/Next page buttons
-- [ ] Create component for listing preview
+- [X] Create component for listing preview
+- [X] Prev/Next page buttons
+- [ ] Add genres list to config constants
 - [ ] Open detailed information in a modal when clicking a preview component
 
-## Notes & Bugs
-Rename the preview component (currently it's RenameMe)
+## Next Up & Bugs
+- Prev/Next buttons
