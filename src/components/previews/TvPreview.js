@@ -1,9 +1,9 @@
 import { NOT_FOUND_IMAGE, BASE_IMAGE_PATH } from '../../constants/config'
 import { STRINGS } from '../../constants/strings'
 
-const TvPreview = ({media, language}) => {
+const TvPreview = ({media, language, handleClick}) => {
     return (
-        <div className="flex gap-4 p-4 bg-gray-300 rounded">
+        <div className="flex gap-4 p-4 bg-gray-300 rounded" onClick={handleClick}>
             <img 
                 src={media.poster_path === null ? NOT_FOUND_IMAGE : BASE_IMAGE_PATH.replace("IMAGE_PATH", media.poster_path)} 
                 alt={`${media.name} poster`}
