@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import MoviePreview from './previews/MoviePreview'
-import TvPreview from './previews/TvPreview'
+import MovieDetails from './details/MovieDetails'
 import PersonPreview from './previews/PersonPreview'
+import PersonDetails from './details/PersonDetails'
+import TvPreview from './previews/TvPreview'
+import TvDetails from './details/TvDetails'
 import Modal from './Modal'
 
 const ResultList = ({results, category, language, refProp}) => {
@@ -27,8 +30,7 @@ const ResultList = ({results, category, language, refProp}) => {
                                 language={language} 
                                 key={index}
                                 handleClick={() => {
-                                    console.log('clicked')
-                                    setFocusComponent(<h1>Hello World</h1>)
+                                    setFocusComponent(<h1>TV FULL DETAILS</h1>)
                                     setIsModalOpen(true)
                                 }}/>
                         )
@@ -37,14 +39,23 @@ const ResultList = ({results, category, language, refProp}) => {
                             <MoviePreview 
                                 media={media} 
                                 language={language} 
-                                key={index}/>
+                                key={index}
+                                handleClick={() => {
+                                    setFocusComponent(<MovieDetails media={media}
+                                                                    language={language}/>)
+                                    setIsModalOpen(true)
+                                }}/>
                         )
                     } else if (media.media_type === "person" || category === "person") {
                         return (
                             <PersonPreview 
                                 media={media} 
                                 language={language} 
-                                key={index}/>
+                                key={index}
+                                handleClick={() => {
+                                    setFocusComponent(<h1>PERSON FULL DETAILS</h1>)
+                                    setIsModalOpen(true)
+                                }}/>
                         )
                     } else {
                         return null
