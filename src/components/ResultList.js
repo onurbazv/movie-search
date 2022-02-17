@@ -41,7 +41,7 @@ const ResultList = ({results, category, language, refProp}) => {
                                 language={language} 
                                 key={index}
                                 handleClick={() => {
-                                    setFocusComponent(<MovieDetails media={media}
+                                    setFocusComponent(<MovieDetails mediaId={media.id}
                                                                     language={language}/>)
                                     setIsModalOpen(true)
                                 }}/>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BASE_URL } from '../constants/config'
+import { SEARCH_URL } from '../constants/config'
 import { STRINGS } from '../constants/strings';
 
 export default function SearchForm({setRequest, language}) {
@@ -24,7 +24,7 @@ export default function SearchForm({setRequest, language}) {
         setRequest({
             page: 1,
             category: formData.category,
-            url: BASE_URL
+            url: SEARCH_URL
                 .replace("QUERY", formData.query)
                 .replace("CATEGORY", formData.category)
                 .replace("NSFW", formData.includeAdult ? "true" : "false")
