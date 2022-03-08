@@ -3,7 +3,7 @@ import { STRINGS } from '../../constants/strings'
 
 const PersonPreview = ({media, language}) => {
     return (
-        <div className="flex gap-4 p-4 bg-gray-300 rounded">
+        <div className="flex gap-4 p-4 bg-gray-200 rounded shadow-md">
             <img 
                 src={media.profile_path === null ? NOT_FOUND_IMAGE : BASE_POSTER_PATH.replace("PATH", media.profile_path)} 
                 alt={`${media.name} poster`}
@@ -11,8 +11,8 @@ const PersonPreview = ({media, language}) => {
             <div className="flex flex-col gap-4">
                 <p className="text-2xl">{media.name}</p>
                 <p>Known for: {
-                    (media.known_for.length > 0 && `${media.known_for.map(kf => (
-                        kf.media_type === "tv" ? kf.name : kf.title
+                    (media.known_for.length > 0 && `${media.known_for.map(gig => (
+                        gig.media_type === "tv" ? gig.name : gig.title
                     )).join(", ")}.`) || STRINGS[language]['NO_DESCRIPTION']
                 }</p>
             </div>

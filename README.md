@@ -11,8 +11,14 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 - [X] Prev/Next page buttons
 - [X] Create genres array constant
 - [ ] Open detailed information in a modal when clicking a preview component
+-- [x] MovieDetails
+-- [ ] TvDetails
+-- [ ] PersonDetails
 
-## Next Up & Bugs
-Modify current modal to use a single modal for all components (instead of creating one modal for each preview component), and setting the correct component inside the modal (as state ?) when clicking the preview, then clearing it when the modal closes.
+## Next Up
 
 Creating a FullMedia component for each different type of "media" (tv/movie/person) and render on modal on click
+
+
+## Bugs and Fixes
+Portuguese translation for Detail type components missing

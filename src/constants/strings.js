@@ -14,7 +14,21 @@ export const STRINGS = {
         'FORM_CATEGORY_PERSON': 'Pessoas',
         'FORM_INCLUDE_NSFW': 'Incluir conteúdo adulto',
         'PAGE_CURRENT': 'Página CURRENT/TOTAL',
-        'PAGE_RESULTS': 'Exibindo MIN-MAX de TOTAL resultados'
+        'PAGE_RESULTS': 'Exibindo MIN-MAX de TOTAL resultados',
+        'MONTHS': [
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro',
+            'Novembro',
+            'Dezembro'
+        ]
     }, 'en-US': {
         'NO_DESCRIPTION': 'No english description',
         'FORM_TITLE': 'TMDB Search',
@@ -27,6 +41,20 @@ export const STRINGS = {
         'FORM_CATEGORY_PERSON': 'Person',
         'FORM_INCLUDE_NSFW': 'Include NSFW content',
         'PAGE_CURRENT': 'Page CURRENT/TOTAL',
-        'PAGE_RESULTS': 'Showing MIN-MAX out of TOTAL results'
+        'PAGE_RESULTS': 'Showing MIN-MAX out of TOTAL results',
+        'MONTHS': [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ]
     }
 }

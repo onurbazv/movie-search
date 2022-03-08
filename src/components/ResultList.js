@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import MoviePreview from './previews/MoviePreview'
-import MovieDetails from './details/MovieDetails'
-import PersonPreview from './previews/PersonPreview'
-import PersonDetails from './details/PersonDetails'
-import TvPreview from './previews/TvPreview'
-import TvDetails from './details/TvDetails'
 import Modal from './Modal'
+import MoviePreview from './previews/MoviePreview'
+import TvPreview from './previews/TvPreview'
+import PersonPreview from './previews/PersonPreview'
+import MovieDetails from './details/MovieDetails'
+import TvDetails from './details/TvDetails'
+import PersonDetails from './details/PersonDetails'
 
 const ResultList = ({results, category, language, refProp}) => {
     const [focusComponent, setFocusComponent] = useState(null)
@@ -30,8 +30,10 @@ const ResultList = ({results, category, language, refProp}) => {
                                 language={language} 
                                 key={index}
                                 handleClick={() => {
-                                    setFocusComponent(<h1>TV FULL DETAILS</h1>)
-                                    setIsModalOpen(true)
+                                    if (window.getSelection().toString() === "") {
+                                        setFocusComponent(<TvDetails />)
+                                        setIsModalOpen(true)
+                                    }
                                 }}/>
                         )
                     } else if (media.media_type === "movie" || category === "movie") {
@@ -41,9 +43,11 @@ const ResultList = ({results, category, language, refProp}) => {
                                 language={language} 
                                 key={index}
                                 handleClick={() => {
-                                    setFocusComponent(<MovieDetails mediaId={media.id}
-                                                                    language={language}/>)
-                                    setIsModalOpen(true)
+                                    if (window.getSelection().toString() === "") {
+                                        setFocusComponent(<MovieDetails mediaId={media.id}
+                                                                        language={language}/>)
+                                        setIsModalOpen(true)
+                                    }
                                 }}/>
                         )
                     } else if (media.media_type === "person" || category === "person") {
@@ -53,8 +57,10 @@ const ResultList = ({results, category, language, refProp}) => {
                                 language={language} 
                                 key={index}
                                 handleClick={() => {
-                                    setFocusComponent(<h1>PERSON FULL DETAILS</h1>)
-                                    setIsModalOpen(true)
+                                    if (window.getSelection().toString() === "") {
+                                        setFocusComponent(<h1>PERSON FULL DETAILS</h1>)
+                                        setIsModalOpen(true)
+                                    }
                                 }}/>
                         )
                     } else {

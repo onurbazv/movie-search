@@ -8,7 +8,8 @@ export const fetchResults = async (url, page, language) => {
 
 
 export const fetchDetailsById = async (id, category, language) => {
-    const url = GET_DETAILS_URL.replace("ID", id).replace("LANGUAGE", language).replace("CATEGORY", category)
+    const additionalParameters = `${category === "movie" ? "&append_to_response=release_dates" : ""}`
+    const url = GET_DETAILS_URL.replace("ID", id).replace("LANGUAGE", language).replace("CATEGORY", category) + additionalParameters
     const req = await fetch(url)
     return await req.json()
 }

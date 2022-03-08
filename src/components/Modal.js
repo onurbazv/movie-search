@@ -16,9 +16,7 @@ const Modal = ({isOpen, close, child}) => {
             <>
                 <div className="fixed inset-0 grid place-items-center z-10">
                     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 z-10" onClick={close}></div>
-                    <div className="bg-white rounded p-8 my-16 max-w-screen-lg modal z-20 overflow-auto">
-                        {child}
-                    </div>
+                    {child}
                 </div>
             </>, document.getElementById("portal")
         ) : null

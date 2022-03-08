@@ -32,7 +32,7 @@ export default function SearchForm({setRequest, language}) {
     }
 
     return (
-        <form className="bg-gray-300 p-4 rounded mb-8" onSubmit={handleSubmit}>
+        <form className="bg-gray-200 p-4 rounded mb-8 shadow-md" onSubmit={handleSubmit}>
                     <h1 className="text-4xl text-center mb-4">{STRINGS[language]['FORM_TITLE']}</h1>
                     <div className="flex gap-4 mb-2">
                         <input
@@ -91,9 +91,9 @@ export default function SearchForm({setRequest, language}) {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 items-center">
                             <p>{STRINGS[language]['FORM_INCLUDE_NSFW']}:</p>
-                            <input 
+                            <input
                                 name="includeAdult"
                                 type="checkbox"
                                 onChange={handleChange}
