@@ -17,7 +17,7 @@ const Ratings = ({voteCount, voteAverage, ...props}) => {
 
     return (
         <div className="font-medium text-lg" {...props}>
-            <p>Vote Average: {voteAverage} ({voteCount} votes)</p>
+            <p>Vote Average: <span className="text-base font-normal">{voteAverage} ({voteCount} votes)</span></p>
             <div className="mt-1 text-yellow-500 flex">
                 {stars}
             </div>

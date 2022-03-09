@@ -61,20 +61,20 @@ const TvDetails = ({mediaId, language}) => {
 					</div>
 
 					{/* Ratings & Episode Dates */}
-					<div className="flex items-center">
+					<div className="flex  mt-3">
 						<Ratings 
 							voteCount={details.vote_count} 
 							voteAverage={details.vote_average} 
-							className="font-medium text-lg mt-3"/>
+							className="font-medium text-lg"/>
 						<div className="ml-auto">
 							{details.last_episode_to_air && (
-								<p className="font-medium">Last Air Date: 
-									<span className="font-normal"> {details.last_episode_to_air.air_date}, {`S${details.last_episode_to_air.season_number}E${details.last_episode_to_air.episode_number}`} </span>
+								<p className="font-medium text-lg">Last Air Date: 
+									<span className="font-normal text-base"> {details.last_episode_to_air.air_date}, {`S${details.last_episode_to_air.season_number}E${details.last_episode_to_air.episode_number}`} </span>
 								</p>
 							)}
 							{details.next_episode_to_air && (
-								<p className={`${details.last_episode_to_air !== null ? "ml-auto" : ""} font-medium`}>Next Air Date: 
-									<span className="font-normal"> {details.next_episode_to_air.air_date}, {`S${details.next_episode_to_air.season_number}E${details.next_episode_to_air.episode_number}`}</span>
+								<p className={`${details.last_episode_to_air !== null ? "ml-auto" : ""} font-medium text-lg`}>Next Air Date: 
+									<span className="font-normal text-base"> {details.next_episode_to_air.air_date}, {`S${details.next_episode_to_air.season_number}E${details.next_episode_to_air.episode_number}`}</span>
 								</p>
 							)}
 						</div>
@@ -89,7 +89,7 @@ const TvDetails = ({mediaId, language}) => {
 						<p className="text-lg font-medium mt-3">
 						Overview:
 						</p>
-						<p className="text-md">
+						<p className="text-base">
 							{details.overview}
 						</p>
 					</>
@@ -98,10 +98,8 @@ const TvDetails = ({mediaId, language}) => {
 					{/* Status */}
 					{details.status && 
 					<p className="text-lg font-medium mt-3">
-						Status: <span className="text-md font-normal">{details.status}</span>
+						Status: <span className="text-base font-normal">{details.status}</span>
 					</p>}
-
-					{/* Next/Last air dates */}
 
 
 					{/* Network Cards */}					

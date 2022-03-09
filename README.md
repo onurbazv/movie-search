@@ -17,9 +17,8 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 -- [ ] PersonDetails
 
 ## Next Up
-
-Creating a FullMedia component for each different type of "media" (tv/movie/person) and render on modal on click
-Create a Footer component crediting THE MOVIE DATABASE and AUTHOR
+Creating a FullMedia type component for Person entities
+Replace static strings with language specific translations
 
 ## Bugs and Fixes
-Portuguese translation for Detail type components missing
+

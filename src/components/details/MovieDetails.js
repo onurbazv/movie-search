@@ -79,19 +79,19 @@ const MovieDetails = ({mediaId, language}) => {
             {/* Status */}
             {details.status && 
               <p className="text-lg font-medium mt-4">
-                  Status: <span className="text-md font-normal">{details.status}</span>
+                  Status: <span className="text-base font-normal">{details.status}</span>
               </p>}
             
             {/* Budget, Revenue */}
             <div className="grid grid-cols-2 mt-4">
               {details.budget !== 0 && 
               <p className="text-lg font-medium">
-                  Budget: <span className="text-md font-normal">{readableMoney(details.budget)}</span>
+                  Budget: <span className="text-base font-normal">{readableMoney(details.budget)}</span>
               </p>}
 
               {details.revenue !== 0 && 
               <p className="text-lg font-medium">
-                  Revenue: <span className="text-md font-normal">{readableMoney(details.revenue)}</span>
+                  Revenue: <span className="text-base font-normal">{readableMoney(details.revenue)}</span>
               </p>}
             </div>
             
