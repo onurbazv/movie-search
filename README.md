@@ -9,6 +9,7 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 - [X] Integrate search functionality to the page
 - [X] Create component for listing preview
 - [X] Prev/Next page buttons
+- [x] Footer Component
 - [X] Create genres array constant
 - [ ] Open detailed information in a modal when clicking a preview component
 -- [x] MovieDetails

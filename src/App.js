@@ -4,6 +4,7 @@ import SearchForm from './components/SearchForm'
 import ResultList from './components/ResultList'
 import LanguageControls from './components/LanguageControls'
 import PageControls from './components/PageControls'
+import Footer from './components/Footer'
 
 export default function App () {
     const [results, setResults] = useState([])
@@ -35,9 +36,9 @@ export default function App () {
     }, [request.url, request.page, language])
 
     return (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="bg-gray-100 min-h-screen flex flex-col">
             <LanguageControls language={language} setLanguage={setLanguage}/>
-            <div className="px-16 mt-8 pb-8">
+            <div className="px-16 mt-8">
                 <div className="max-w-screen-md mx-auto">
                     <SearchForm 
                         setRequest={setRequest} 
@@ -60,6 +61,7 @@ export default function App () {
                     )}
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
