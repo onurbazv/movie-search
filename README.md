@@ -12,13 +12,13 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 - [X] Create genres array constant
 - [ ] Open detailed information in a modal when clicking a preview component
 -- [x] MovieDetails
--- [ ] TvDetails
+-- [x] TvDetails
 -- [ ] PersonDetails
 
 ## Next Up
 
 Creating a FullMedia component for each different type of "media" (tv/movie/person) and render on modal on click
-
+Create a Footer component crediting THE MOVIE DATABASE and AUTHOR
 
 ## Bugs and Fixes
 Portuguese translation for Detail type components missing

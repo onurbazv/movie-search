@@ -18,19 +18,18 @@ const MovieDetails = ({mediaId, language}) => {
       setDetails({...data, certification: certification})
     })
   }, [mediaId, language])
-  console.log(details)
+
   return (
     details !== null && (
       <div
         style={{
-          background: `linear-gradient(rgba(230,230,230,0.75), rgba(190,190,190,0.75)), 
+          background: `linear-gradient(rgba(230,230,230,0.85), rgba(190,190,190,0.85)), 
                       ${details.backdrop_path ? `url('${BASE_BACKDROP_PATH.replace("PATH", details.backdrop_path)}')` : "linear-gradient(white, white)"}`,
           backgroundSize: "cover"
         }}
-        className="rounded p-6 my-16 max-w-screen-lg w-full modal z-20 overflow-auto">
+        className="rounded p-6 my-16 max-w-screen-lg w-full modal z-20 overflow-auto flex gap-4 ">
       
-        <div className="flex gap-4">
-
+          {/* Poster */}
           <div className="w-1/3 flex items-center">
             <img 
                 src={details.poster_path ? `${BASE_POSTER_PATH.replace("PATH", details.poster_path)}` : NOT_FOUND_IMAGE}
@@ -38,16 +37,19 @@ const MovieDetails = ({mediaId, language}) => {
                 className="rounded"/>
           </div>
           
+          {/* Content */}
           <div className="w-2/3">
+            {/* Title */}
             <p className={`${details.title.length > 30 ? "text-3xl" : "text-4xl"} font-medium`}>
               {details.title}
               {details.release_date && 
                 <span className="text-gray-500 font-light"> ({details.release_date.split('-')[0]})</span>}
             </p>
-
-            <div className="my-4 flex gap-2">
+            
+            {/* Certification, Genres, Runtime */}
+            <div className="mt-4 flex gap-2">
               {details.certification && 
-                  <p className="border-gray-600 border-2 px-2 rounded w-max">
+                  <p className="border-gray-600 text-gray-600 border-2 px-2 rounded w-max">
                     {details.certification}
                   </p>}
 
@@ -55,10 +57,14 @@ const MovieDetails = ({mediaId, language}) => {
                 {`${details.certification ? "• " : ""} ${details.genres.map(genre => genre.name).join(", ")} • ${details.runtime}min`}
               </div>
             </div>
-            <Ratings voteCount={details.vote_count} voteAverage={details.vote_average} className="font-medium text-lg"/>
+
+            {/* Ratings */}
+            <Ratings voteCount={details.vote_count} voteAverage={details.vote_average} className="font-medium text-lg mt-4"/>
             
+            {/* Tagline */}
             {details.tagline && <p className="mt-4 italic">{details.tagline}</p>}
             
+            {/* Overview */}
             {details.overview && 
             <>
               <p className="text-lg font-medium mt-4">
@@ -70,12 +76,13 @@ const MovieDetails = ({mediaId, language}) => {
             </>
             }
 
-
+            {/* Status */}
             {details.status && 
               <p className="text-lg font-medium mt-4">
                   Status: <span className="text-md font-normal">{details.status}</span>
               </p>}
-
+            
+            {/* Budget, Revenue */}
             <div className="grid grid-cols-2 mt-4">
               {details.budget !== 0 && 
               <p className="text-lg font-medium">
@@ -88,9 +95,8 @@ const MovieDetails = ({mediaId, language}) => {
               </p>}
             </div>
             
-          </div>
 
-        </div>
+          </div>
       </div>
     )
   )

@@ -31,7 +31,8 @@ const ResultList = ({results, category, language, refProp}) => {
                                 key={index}
                                 handleClick={() => {
                                     if (window.getSelection().toString() === "") {
-                                        setFocusComponent(<TvDetails />)
+                                        setFocusComponent(<TvDetails mediaId={media.id} 
+                                                                     language={language}/>)
                                         setIsModalOpen(true)
                                     }
                                 }}/>

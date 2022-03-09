@@ -7,10 +7,10 @@ const Ratings = ({voteCount, voteAverage, ...props}) => {
     useEffect(() => {
         const tempArr = []
         for (let i = 0; i < Math.round(voteAverage); i++) {
-            tempArr.push(STAR_FILLED)
+            tempArr.push(<div key={tempArr.length}>{STAR_FILLED}</div>)
         }
         while (tempArr.length < 10) {
-            tempArr.push(STAR_EMPTY)
+            tempArr.push(<div key={tempArr.length}>{STAR_EMPTY}</div>)
         }
         setStars(tempArr)
     }, [])
