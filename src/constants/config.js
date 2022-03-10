@@ -1,5 +1,6 @@
 export const NOT_FOUND_IMAGE = "img/placeholder.jpg"
 export const NOT_FOUND_BACKDROP = "img/backdrop.png"
+export const SMALL_POSTER_PATH = "https://image.tmdb.org/t/p/w154PATH"
 export const BASE_POSTER_PATH = "https://image.tmdb.org/t/p/w500PATH"
 export const BASE_NETWORK_PATH = "https://image.tmdb.org/t/p/w92PATH"
 export const BASE_BACKDROP_PATH = "https://image.tmdb.org/t/p/w780PATH"

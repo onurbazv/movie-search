@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchDetailsById } from "../../services/tmdb"
 import { BASE_BACKDROP_PATH, BASE_NETWORK_PATH, BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
-import Ratings from "./Ratings"
+import Ratings from "./extra/Ratings"
 
 const TvDetails = ({mediaId, language}) => {
 	const [details, setDetails] = useState(null)
@@ -17,15 +17,15 @@ const TvDetails = ({mediaId, language}) => {
 		})
 	  }, [mediaId, language])
 
-	details !== null && console.log(details)
+	
 
 	return (
 		details !== null && (
 			<div
 				style={{
-				background: `linear-gradient(rgba(230,230,230,0.85), rgba(190,190,190,0.85)), 
-							${details.backdrop_path ? `url('${BASE_BACKDROP_PATH.replace("PATH", details.backdrop_path)}')` : "linear-gradient(white, white)"}`,
-				backgroundSize: "cover"
+					background: `linear-gradient(rgba(230,230,230,0.85), rgba(190,190,190,0.85)), 
+								${details.backdrop_path ? `url('${BASE_BACKDROP_PATH.replace("PATH", details.backdrop_path)}')` : "linear-gradient(white, white)"}`,
+					backgroundSize: "cover"
 				}}
 				className="rounded p-6 my-16 max-w-screen-lg w-full modal z-20 overflow-y-auto flex gap-3 max-h-90">
 			
@@ -102,13 +102,14 @@ const TvDetails = ({mediaId, language}) => {
 					</p>}
 
 
-					{/* Network Cards */}					
+					{/* Network Cards --- To be replaceed by watch providers */}					
 					{details.networks.length > 0 && (
 						<>
 							<p className="mt-3 text-lg font-medium">Networks:</p>
 							<div className="w-full mt-2 max-h-48 flex gap-3">
-								{details.networks.map(network => (
+								{details.networks.map((network, index) => (
 									<img 
+										key={index}
 										src={network.logo_path ?
 											`${BASE_NETWORK_PATH.replace("PATH", network.logo_path)}` : 
 											NOT_FOUND_IMAGE} 

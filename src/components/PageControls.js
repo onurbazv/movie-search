@@ -22,7 +22,7 @@ const PageControls = ({currentPage, totalPages, totalResults, setRequest, langua
     }
 
     return (
-        <div>
+        <div className="mb-8">
             <div className="flex space-between items-center">
                 <button 
                     className={`p-1 bg-gray-200 rounded ${currentPage === 1 && "cursor-not-allowed"}`}

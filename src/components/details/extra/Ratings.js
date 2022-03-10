@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { STAR_EMPTY, STAR_FILLED } from '../../constants/icons'
+import { STAR_EMPTY, STAR_FILLED } from '../../../constants/icons'
 
 const Ratings = ({voteCount, voteAverage, ...props}) => {
     const [stars, setStars] = useState([])

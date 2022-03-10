@@ -5,13 +5,10 @@ const Footer = () => {
                 <div className="mr-auto">
                     © 2022 Bruno Azevedo
                 </div>
-                <div>
-                    <a className="flex items-center" href="https://www.themoviedb.org/">
-
+                <a className="flex items-center" href="https://www.themoviedb.org/">
                     <p className="mr-4">Powered by TMDB API</p>
                     <img src="./img/tmdb-logo-full.svg" alt="TheMovieDB logo" className="w-12"/>
-                    </a>
-                </div>
+                </a>
             </div>
         </footer>
     )

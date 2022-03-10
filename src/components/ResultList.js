@@ -59,7 +59,9 @@ const ResultList = ({results, category, language, refProp}) => {
                                 key={index}
                                 handleClick={() => {
                                     if (window.getSelection().toString() === "") {
-                                        setFocusComponent(<h1>PERSON FULL DETAILS</h1>)
+                                        setFocusComponent(<PersonDetails mediaId={media.id}
+                                                                         language={language}
+                                                                         setFocusComponent={setFocusComponent}/>)
                                         setIsModalOpen(true)
                                     }
                                 }}/>

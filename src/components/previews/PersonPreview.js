@@ -1,9 +1,10 @@
 import { NOT_FOUND_IMAGE, BASE_POSTER_PATH } from '../../constants/config'
 import { STRINGS } from '../../constants/strings'
 
-const PersonPreview = ({media, language}) => {
+const PersonPreview = ({media, language, handleClick}) => {
+
     return (
-        <div className="flex gap-4 p-4 bg-gray-200 rounded shadow-md">
+        <div className="flex gap-4 p-4 bg-gray-200 rounded shadow-md" onClick={handleClick}>
             <img 
                 src={media.profile_path === null ? NOT_FOUND_IMAGE : BASE_POSTER_PATH.replace("PATH", media.profile_path)} 
                 alt={`${media.name} poster`}

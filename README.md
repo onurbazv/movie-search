@@ -11,14 +11,16 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 - [X] Prev/Next page buttons
 - [x] Footer Component
 - [X] Create genres array constant
-- [ ] Open detailed information in a modal when clicking a preview component
+- [x] Open detailed information in a modal when clicking a preview component
 -- [x] MovieDetails
 -- [x] TvDetails
--- [ ] PersonDetails
+-- [x] PersonDetails
+- [ ] Full pt-BR translation
+- [ ] Add watch providers to both Movies and Tv details type components
 
 ## Next Up
-Creating a FullMedia type component for Person entities
 Replace static strings with language specific translations
+Add watch providers to detail components
 
 ## Bugs and Fixes
 
