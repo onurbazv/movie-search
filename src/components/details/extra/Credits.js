@@ -4,7 +4,7 @@ import { SMALL_POSTER_PATH, NOT_FOUND_IMAGE } from '../../../constants/config'
 import MovieDetails from '../MovieDetails'
 import TvDetails from '../TvDetails'
 
-const CombinedCredits = ({credits, setFocusComponent, language}) => {
+const Credits = ({credits, setFocusComponent, language}) => {
     const [page, setPage] = useState(1)
 
     return (
@@ -39,4 +39,4 @@ const CombinedCredits = ({credits, setFocusComponent, language}) => {
     )
 }
 
-export default CombinedCredits
+export default Credits

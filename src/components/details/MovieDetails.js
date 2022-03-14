@@ -3,6 +3,7 @@ import { readableMoney } from '../../helpers/text'
 import { BASE_BACKDROP_PATH, BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
 import { fetchDetailsById } from '../../services/tmdb'
 import Ratings from './extra/Ratings'
+import WatchProviders from './extra/WatchProviders'
 
 const MovieDetails = ({mediaId, language}) => {
 
@@ -13,11 +14,21 @@ const MovieDetails = ({mediaId, language}) => {
 		const release_dates = data.release_dates.results.filter(date => date.iso_3166_1 === language.split("-")[1])
 		let certification = null
 		if (release_dates.length > 0) {
-		certification = release_dates[0].release_dates[0].certification
+			certification = release_dates[0].release_dates[0].certification
 		}
-		setDetails({...data, certification: certification})
-	})
+		let providers = data["watch/providers"].results[language.split('-')[1]]
+		let top_providers = []
+		if (providers !== undefined) {
+			top_providers = top_providers.concat(providers.rent, providers.buy, providers.flatrate)
+					.filter(a => a !== undefined)
+					.sort((a, b) => a.provider - b.provider)
+					.slice(0, 4)
+		}
+		setDetails({...data, certification: certification, providers: top_providers})
+		})
 	}, [mediaId, language])
+
+	details !== null && console.log(details)
 
 	return (
 		details !== null && (
@@ -93,7 +104,11 @@ const MovieDetails = ({mediaId, language}) => {
 							Revenue: <span className="text-base font-normal">{readableMoney(details.revenue)}</span>
 						</p>}
 					</div>
-			
+
+					{/* Watch Providers */}
+					{details.providers.length > 0 && (
+						<WatchProviders providers={details.providers}/>
+					)}
 				</div>
 			</div>
 		)

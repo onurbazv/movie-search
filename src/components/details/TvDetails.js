@@ -1,23 +1,32 @@
 import { useEffect, useState } from "react"
 import { fetchDetailsById } from "../../services/tmdb"
-import { BASE_BACKDROP_PATH, BASE_NETWORK_PATH, BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
+import { BASE_BACKDROP_PATH, BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
 import Ratings from "./extra/Ratings"
+import WatchProviders from './extra/WatchProviders'
 
 const TvDetails = ({mediaId, language}) => {
 	const [details, setDetails] = useState(null)
 
 	useEffect(() => {
 		fetchDetailsById(mediaId, "tv", language).then(data => {
-		  const content_ratings = data.content_ratings.results.filter(cr => cr.iso_3166_1 === language.split("-")[1])
-		  let certification = null
-		  if (content_ratings.length > 0) {
-			certification = content_ratings[0].rating
-		  }
-		  setDetails({...data, certification: certification})
+			const content_ratings = data.content_ratings.results.filter(cr => cr.iso_3166_1 === language.split("-")[1])
+			let certification = null
+			if (content_ratings.length > 0) {
+				certification = content_ratings[0].rating
+			}
+		  	let providers = data["watch/providers"].results[language.split('-')[1]]
+			let top_providers = []
+			if (providers !== undefined) {
+				top_providers = top_providers.concat(providers.rent, providers.buy, providers.flatrate)
+					.filter(a => a !== undefined)
+					.sort((a, b) => a.provider - b.provider)
+					.slice(0, 4)
+			}
+			setDetails({...data, certification: certification, providers: top_providers})
 		})
 	  }, [mediaId, language])
 
-	
+	details !== null && console.log(details)
 
 	return (
 		details !== null && (
@@ -102,21 +111,9 @@ const TvDetails = ({mediaId, language}) => {
 					</p>}
 
 
-					{/* Network Cards --- To be replaceed by watch providers */}					
-					{details.networks.length > 0 && (
-						<>
-							<p className="mt-3 text-lg font-medium">Networks:</p>
-							<div className="w-full mt-2 max-h-48 flex gap-3">
-								{details.networks.map((network, index) => (
-									<img 
-										key={index}
-										src={network.logo_path ?
-											`${BASE_NETWORK_PATH.replace("PATH", network.logo_path)}` : 
-											NOT_FOUND_IMAGE} 
-										alt={`${network.name} logo`}/>
-								))}
-							</div>
-						</>
+					{/* Watch Providers */}
+					{details.providers.length > 0 && (
+						<WatchProviders providers={details.providers}/>
 					)}
 				</div>
 				

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { fetchDetailsById } from '../../services/tmdb'
 import { BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
 import { readableDate } from '../../helpers/dates'
-import CombinedCredits from './extra/CombinedCredits'
+import Credits from './extra/Credits'
 
 const PersonDetails = ({mediaId, language, setFocusComponent}) => {
 	const [details, setDetails] = useState(null)
@@ -75,9 +75,9 @@ const PersonDetails = ({mediaId, language, setFocusComponent}) => {
 
 					{/* Known_for or Credit Cards */}
 					{details.combined_credits.length > 0 && (
-						<CombinedCredits credits={details.combined_credits} 
-										 language={language}
-										 setFocusComponent={setFocusComponent} />
+						<Credits credits={details.combined_credits} 
+								 language={language}
+								 setFocusComponent={setFocusComponent} />
 					)}
 				</div>
 				
