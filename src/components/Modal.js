@@ -15,7 +15,7 @@ const Modal = ({isOpen, close, child}) => {
         isOpen ? ReactDOM.createPortal(
             <>
                 <div className="fixed inset-0 grid place-items-center z-10">
-                    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 z-10" onClick={close}></div>
+                    <div className="fixed inset-0 bg-gray-600 bg-opacity-75 z-10" onClick={close}></div>
                     {child}
                 </div>
             </>, document.getElementById("portal")

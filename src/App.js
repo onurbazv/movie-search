@@ -36,7 +36,13 @@ export default function App () {
     }, [request.url, request.page, language])
 
     return (
-        <div className="bg-gray-100 min-h-screen flex flex-col">
+        <div
+            style={{
+                background: "url('img/bg-film-alt.png'), linear-gradient(#232526, #414345)",
+                backgroundSize: "cover",
+                backgroundAttachment: "fixed"
+            }}
+            className="min-h-screen flex flex-col">
             <LanguageControls language={language} setLanguage={setLanguage}/>
             <div className="px-16 mt-8">
                 <div className="max-w-screen-md mx-auto">
