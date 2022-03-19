@@ -28,7 +28,21 @@ export const STRINGS = {
             'Outubro',
             'Novembro',
             'Dezembro'
-        ]
+        ],
+        'ATTRIBUTION': 'Desenvolvido com',
+        'DETAILS_VOTE_AVG':'Média de Votos',
+        'DETAILS_KNOWN_FOR': 'Conhecido por',
+        'DETAILS_WATCHPROV': 'Onde assistir',
+        'DETAILS_OVERVIEW': 'Sinopse',
+        'DETAILS_STATUS': 'Situação',
+        'DETAILS_BUDGET': 'Orçamento',
+        'DETAILS_REVENUE': 'Rendimento',
+        'DETAILS_NEXT_AIR': 'Próxima Exibição',
+        'DETAILS_LAST_AIR': 'Ultima Exibição',
+        'DETAILS_BIOGRAPHY': 'Biografia',
+        'DETAILS_PLACEOFBIRTH': 'Local de Nascimento',
+        'DETAILS_BIRTHDAY': 'Aniversário',
+        'DETAILS_DEATHDAY': 'Dia da Morte'
     }, 'en-US': {
         'NO_DESCRIPTION': 'No english description',
         'FORM_TITLE': 'TMDB Search',
@@ -55,6 +69,20 @@ export const STRINGS = {
             'October',
             'November',
             'December'
-        ]
+        ],
+        'ATTRIBUTION': 'Powered by',
+        'DETAILS_VOTE_AVG': 'Vote Average',
+        'DETAILS_KNOWN_FOR': 'Known for',
+        'DETAILS_WATCHPROV': 'Watch Providers', 
+        'DETAILS_OVERVIEW': 'Overview',
+        'DETAILS_STATUS': 'Status',
+        'DETAILS_BUDGET': 'Budget',
+        'DETAILS_REVENUE': 'Revenue',
+        'DETAILS_NEXT_AIR': 'Next Air Date',
+        'DETAILS_LAST_AIR': 'Last Air Date',
+        'DETAILS_BIOGRAPHY': 'Biography',
+        'DETAILS_PLACEOFBIRTH': 'Place of Birth',
+        'DETAILS_BIRTHDAY': 'Birthday',
+        'DETAILS_DEATHDAY': 'Deathday'
     }
 }

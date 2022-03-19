@@ -29,7 +29,7 @@ const PageControls = ({currentPage, totalPages, totalResults, setRequest, langua
                     onClick={prevPage}>
                     {ARROW_LEFT}
                 </button>
-                <div className="mx-auto">
+                <div className="mx-auto text-gray-100">
                     <p className="text-center">
                     {STRINGS[language]['PAGE_CURRENT']
                         .replace("CURRENT", currentPage)

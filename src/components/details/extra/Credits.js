@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ARROW_LEFT, ARROW_RIGHT } from '../../../constants/icons'
+import { STRINGS } from '../../../constants/strings'
 import { SMALL_POSTER_PATH, NOT_FOUND_IMAGE } from '../../../constants/config'
 import MovieDetails from '../MovieDetails'
 import TvDetails from '../TvDetails'
@@ -9,12 +10,13 @@ const Credits = ({credits, setFocusComponent, language}) => {
 
     return (
         <>
-            <p className="text-lg font-medium mt-4">Known For:</p>
+            <p className="text-lg font-medium mt-4">{STRINGS[language]['DETAILS_KNOWN_FOR']}:</p>
             <div className="flex w-full h-48 mt-2">
-                <div className={`mr-1 flex items-center ${page <= 1 ? "cursor-not-allowed" : ""}`}
+                {credits.length > 5 && (
+                <div className={`mr-1 flex items-center ${page <= 1 ? "cursor-not-allowed text-gray-400" : "cursor-pointer"}`}
                      onClick={() => page > 1 && setPage(prev => prev - 1)}>
                     {ARROW_LEFT}
-                </div>
+                </div>)}
                 <div className="w-full grid grid-cols-5 gap-2">
                     {credits.slice((page * 5) - 5, (page * 5)).map((credit, index) => (
                         <div key={index} onClick={() => {
@@ -30,10 +32,11 @@ const Credits = ({credits, setFocusComponent, language}) => {
                         </div>
                     ))}
                 </div>
-                <div className={`ml-1 flex items-center ${page >= Math.ceil(credits.length / 5) ? "cursor-not-allowed" : ""}`}
+                {credits.length > 5 && (
+                <div className={`ml-1 flex items-center ${page >= Math.ceil(credits.length / 5) ? "cursor-not-allowed text-gray-400" : "cursor-pointer"}`}
                      onClick={() => page < Math.ceil(credits.length / 5) && setPage(prev => prev + 1)}>
                     {ARROW_RIGHT}
-                </div>
+                </div>)}
             </div>
         </>
     )

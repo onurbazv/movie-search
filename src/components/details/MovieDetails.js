@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { readableMoney } from '../../helpers/text'
 import { BASE_BACKDROP_PATH, BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
+import { STRINGS } from '../../constants/strings'
 import { fetchDetailsById } from '../../services/tmdb'
 import Ratings from './extra/Ratings'
 import WatchProviders from './extra/WatchProviders'
@@ -70,7 +71,11 @@ const MovieDetails = ({mediaId, language}) => {
 						</div>
 
 						{/* Ratings */}
-						<Ratings voteCount={details.vote_count} voteAverage={details.vote_average} className="font-medium text-lg mt-4"/>
+						<Ratings 
+							language={language} 
+							voteCount={details.vote_count} 
+							voteAverage={details.vote_average} 
+							className="font-medium text-lg mt-4"/>
 					
 						{/* Tagline */}
 						{details.tagline && <p className="mt-4 italic">{details.tagline}</p>}
@@ -79,7 +84,7 @@ const MovieDetails = ({mediaId, language}) => {
 						{details.overview && 
 						<>
 							<p className="text-lg font-medium mt-4">
-							Overview:
+							{STRINGS[language]['DETAILS_OVERVIEW']}:
 							</p>
 							<p>
 							{details.overview}
@@ -89,25 +94,25 @@ const MovieDetails = ({mediaId, language}) => {
 						{/* Status */}
 						{details.status && 
 							<p className="text-lg font-medium mt-4">
-								Status: <span className="text-base font-normal">{details.status}</span>
+								{STRINGS[language]['DETAILS_STATUS']}: <span className="text-base font-normal">{details.status}</span>
 							</p>}
 					
 						{/* Budget, Revenue */}
 						<div className="grid grid-cols-2 mt-4">
 							{details.budget !== 0 && 
 							<p className="text-lg font-medium">
-								Budget: <span className="text-base font-normal">{readableMoney(details.budget)}</span>
+								{STRINGS[language]['DETAILS_BUDGET']}: <span className="text-base font-normal">{readableMoney(details.budget)}</span>
 							</p>}
 
 							{details.revenue !== 0 && 
 							<p className="text-lg font-medium">
-								Revenue: <span className="text-base font-normal">{readableMoney(details.revenue)}</span>
+								{STRINGS[language]['DETAILS_REVENUE']}: <span className="text-base font-normal">{readableMoney(details.revenue)}</span>
 							</p>}
 						</div>
 
 						{/* Watch Providers */}
 						{details.providers.length > 0 && (
-							<WatchProviders providers={details.providers}/>
+							<WatchProviders providers={details.providers} language={language}/>
 						)}
 					</div>
 				</div>

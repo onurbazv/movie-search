@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { fetchDetailsById } from '../../services/tmdb'
 import { BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
+import { STRINGS } from '../../constants/strings'
 import { readableDate } from '../../helpers/dates'
 import Credits from './extra/Credits'
 
@@ -42,7 +43,7 @@ const PersonDetails = ({mediaId, language, setFocusComponent}) => {
 					{details.biography && 
 					<>
 						<p className="text-lg font-medium mt-4">
-						Biography:
+						{STRINGS[language]['DETAILS_BIOGRAPHY']}:
 						</p>
 						<p>
 							{details.biography}
@@ -54,12 +55,12 @@ const PersonDetails = ({mediaId, language, setFocusComponent}) => {
 						<div className="flex mt-4">
 							{details.birthday !== null && (
 								<p className="text-lg font-medium">
-									Birthday: <span className="font-normal text-base">{readableDate(details.birthday, language)}</span>
+									{STRINGS[language]['DETAILS_BIRTHDAY']}: <span className="font-normal text-base">{readableDate(details.birthday, language)}</span>
 								</p>
 							)}
 							{details.deathday !== null && (
 								<p className={`text-lg font-medium ${details.birthday !== null ? "ml-auto" : ""}`}>
-									Death day: <span className="font-normal text-base">{readableDate(details.deathday, language)}</span>
+									{STRINGS[language]['DETAILS_DEATHDAY']}: <span className="font-normal text-base">{readableDate(details.deathday, language)}</span>
 								</p>
 							)}
 						</div>
@@ -69,7 +70,7 @@ const PersonDetails = ({mediaId, language, setFocusComponent}) => {
 					{/* Place of Birth */}
 					{details.place_of_birth !== null && (
 						<p className="text-lg font-medium mt-4">
-							Place of Birth: <span className="font-normal text-base">{details.place_of_birth}</span>
+							{STRINGS[language]['DETAILS_PLACEOFBIRTH']}: <span className="font-normal text-base">{details.place_of_birth}</span>
 						</p>
 					)}
 

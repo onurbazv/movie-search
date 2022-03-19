@@ -1,9 +1,10 @@
 import { BASE_LOGO_PATH, NOT_FOUND_IMAGE } from "../../../constants/config"
+import { STRINGS } from "../../../constants/strings"
 
-const WatchProviders = ({providers}) => {
+const WatchProviders = ({providers, language}) => {
     return (
         <>
-            <p className="text-lg font-medium mt-4">Watch Providers:</p>
+            <p className="text-lg font-medium mt-4">{STRINGS[language]['DETAILS_WATCHPROV']}:</p>
             <div className="w-full grid grid-cols-4 gap-2 mt-2">
                 {providers.map((provider, index) => (
                     <div key={index}>

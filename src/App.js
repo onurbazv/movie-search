@@ -38,7 +38,7 @@ export default function App () {
     return (
         <div
             style={{
-                background: "url('img/bg-film-alt.png'), linear-gradient(#232526, #414345)",
+                background: "url('img/bg-film-30.png'), linear-gradient(45deg, #232526, #414345)",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed"
             }}
@@ -67,7 +67,7 @@ export default function App () {
                     )}
                 </div>
             </div>
-            <Footer />
+            <Footer language={language}/>
         </div>
     )
 }

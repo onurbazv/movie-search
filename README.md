@@ -15,11 +15,10 @@ This simple react app will interact with an API from the website TheMovieDB (nee
 -- [x] MovieDetails
 -- [x] TvDetails
 -- [x] PersonDetails
-- [ ] Full pt-BR translation
+- [x] Full pt-BR translation
 - [x] Add watch providers to both Movies and Tv details type components
 
-## Next Up
-Change static strings to Translation Constants that change based on app language
-
 ## Bugs and Fixes
+
+App is finished, no bugs found yet
 

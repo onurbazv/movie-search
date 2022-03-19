@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchDetailsById } from "../../services/tmdb"
 import { BASE_BACKDROP_PATH, BASE_POSTER_PATH, NOT_FOUND_IMAGE } from '../../constants/config'
+import { STRINGS } from '../../constants/strings'
 import Ratings from "./extra/Ratings"
 import WatchProviders from './extra/WatchProviders'
 
@@ -72,19 +73,20 @@ const TvDetails = ({mediaId, language}) => {
 						</div>
 
 						{/* Ratings & Episode Dates */}
-						<div className="flex  mt-3">
-							<Ratings 
+						<div className="flex mt-3">
+							<Ratings
+								language={language}
 								voteCount={details.vote_count} 
 								voteAverage={details.vote_average} 
 								className="font-medium text-lg"/>
 							<div className="ml-auto">
 								{details.last_episode_to_air && (
-									<p className="font-medium text-lg">Last Air Date: 
+									<p className="font-medium text-lg">{STRINGS[language]['DETAILS_LAST_AIR']}: 
 										<span className="font-normal text-base"> {details.last_episode_to_air.air_date}, {`S${details.last_episode_to_air.season_number}E${details.last_episode_to_air.episode_number}`} </span>
 									</p>
 								)}
 								{details.next_episode_to_air && (
-									<p className={`${details.last_episode_to_air !== null ? "ml-auto" : ""} font-medium text-lg`}>Next Air Date: 
+									<p className={`${details.last_episode_to_air !== null ? "ml-auto" : ""} font-medium text-lg`}>{STRINGS[language]['DETAILS_NEXT_AIR']}: 
 										<span className="font-normal text-base"> {details.next_episode_to_air.air_date}, {`S${details.next_episode_to_air.season_number}E${details.next_episode_to_air.episode_number}`}</span>
 									</p>
 								)}
@@ -98,7 +100,7 @@ const TvDetails = ({mediaId, language}) => {
 						{details.overview && 
 						<>
 							<p className="text-lg font-medium mt-3">
-							Overview:
+							{STRINGS[language]['DETAILS_OVERVIEW']}:
 							</p>
 							<p className="text-base">
 								{details.overview}
@@ -109,13 +111,13 @@ const TvDetails = ({mediaId, language}) => {
 						{/* Status */}
 						{details.status && 
 						<p className="text-lg font-medium mt-3">
-							Status: <span className="text-base font-normal">{details.status}</span>
+							{STRINGS[language]['DETAILS_STATUS']}: <span className="text-base font-normal">{details.status}</span>
 						</p>}
 
 
 						{/* Watch Providers */}
 						{details.providers.length > 0 && (
-							<WatchProviders providers={details.providers}/>
+							<WatchProviders providers={details.providers} language={language}/>
 						)}
 					</div>
 				</div>
